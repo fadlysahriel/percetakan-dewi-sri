@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percetakan Dewi Sri — Cetak Apapun, Hasil Terpercaya</title>
+<meta name="description" content="Percetakan Dewi Sri melayani jasa cetak digital, spanduk & banner, kartu nama, undangan, stiker, merchandise, hingga dokumen. Pesan mudah lewat WhatsApp.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#201C16;
+    --paper:#EAE3D3;
+    --paper-light:#F4EFE4;
+    --cream:#FBF8F1;
+    --gold:#C79A2E;
+    --green:#1F5C4B;
+    --red:#B8412C;
+    --muted:#7A7365;
+    --max-w:1180px;
+    --radius:4px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    line-height:0.95;
+    margin:0 0 0.4em 0;
+    letter-spacing:0.2px;
+  }
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 24px;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 26px;
+    border-radius:var(--radius);
+    font-weight:600;
+    text-decoration:none;
+    border:2px solid var(--ink);
+    transition:transform .15s ease;
+    font-size:0.95rem;
+  }
+  .btn:hover{transform:translate(-2px,-2px);}
+  .btn-primary{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+  .btn-primary:hover{background:var(--green); border-color:var(--green);}
+  .btn-outline{background:transparent; color:var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--cream);}
+  .eyebrow{
+    font-size:0.8rem;
+    color:var(--green);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:""; width:26px; height:2px; background:var(--gold); display:inline-block;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(234,227,211,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:2px solid var(--ink);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0;
+  }
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink);}
+  .brand img{width:44px; height:44px;}
+  .brand-name{font-family:'Big Shoulders Display'; font-weight:700; font-size:1.25rem; letter-spacing:0.3px;}
+  .brand-name span{display:block; font-family:'Work Sans'; font-weight:500; font-size:0.62rem; letter-spacing:2px; color:var(--muted);}
+  nav.links{display:flex; gap:30px; font-weight:600; font-size:0.92rem;}
+  nav.links a{text-decoration:none; position:relative; padding-bottom:4px;}
+  nav.links a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:var(--red); transition:width .2s;}
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{display:flex; align-items:center; gap:18px;}
+  .menu-toggle{display:none; background:none; border:2px solid var(--ink); border-radius:4px; padding:8px 10px; cursor:pointer;}
+  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+    content:""; display:block; width:20px; height:2px; background:var(--ink); position:relative; transition:.2s;
+  }
+  .menu-toggle span::before{position:absolute; top:-7px;}
+  .menu-toggle span::after{position:absolute; top:7px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:72px 0 90px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:2px solid var(--ink);
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:50px;
+    align-items:center;
+  }
+  .hero h1{font-size:clamp(2.6rem, 5.2vw, 4.4rem); max-width:11ch;}
+  .hero p.lead{font-size:1.08rem; color:#403A2E; max-width:46ch; margin:20px 0 32px;}
+  .hero-cta{display:flex; gap:16px; flex-wrap:wrap;}
+  .hero-meta{
+    display:flex; gap:28px; margin-top:44px; flex-wrap:wrap;
+  }
+  .hero-meta div{border-left:2px solid var(--gold); padding-left:12px;}
+  .hero-meta strong{display:block; font-family:'Big Shoulders Display'; font-size:1.5rem;}
+  .hero-meta span{font-size:0.8rem; color:var(--muted);}
+
+  .press-art{position:relative; aspect-ratio:1/1; max-width:440px; margin:0 auto;}
+  .press-art .plate{
+    position:absolute; inset:0;
+    border:2px solid var(--ink);
+    border-radius:6px;
+    mix-blend-mode:multiply;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .plate-1{background:var(--gold); transform:rotate(-8deg) translate(-18px,-6px);}
+  .plate-2{background:var(--green); transform:rotate(5deg) translate(14px,10px);}
+  .plate-3{background:var(--red); transform:rotate(-2deg) translate(2px,-16px);}
+  .plate-4{background:var(--cream); mix-blend-mode:normal; border-color:var(--ink); transform:rotate(0); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;}
+  .plate-4 strong{font-family:'Big Shoulders Display'; font-size:2.4rem; color:var(--ink); letter-spacing:1px;}
+  .plate-4 span{font-size:0.72rem; letter-spacing:3px; color:var(--muted); font-weight:600;}
+  .reg-mark{position:absolute; width:26px; height:26px;}
+  .reg-mark::before, .reg-mark::after{content:""; position:absolute; background:var(--ink);}
+  .reg-mark::before{width:100%; height:2px; top:50%; transform:translateY(-50%);}
+  .reg-mark::after{height:100%; width:2px; left:50%; transform:translateX(-50%);}
+  .reg-mark i{position:absolute; inset:6px; border:2px solid var(--ink); border-radius:50%;}
+  .rm-tl{top:-14px; left:-14px;} .rm-tr{top:-14px; right:-14px;}
+  .rm-bl{bottom:-14px; left:-14px;} .rm-br{bottom:-14px; right:-14px;}
+
+  /* ---------- Sections shared ---------- */
+  section{padding:88px 0;}
+  section.alt{background:var(--paper-light); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(2rem, 3.6vw, 2.9rem);}
+  .section-head p{color:var(--muted); font-size:1.02rem; margin-top:14px;}
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:2px;
+    background:var(--ink); border:2px solid var(--ink);
+  }
+  .service-card{
+    background:var(--cream); padding:34px 28px; min-height:210px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .service-card.featured{background:var(--ink); color:var(--cream);}
+  .service-card.featured .muted{color:#C9C2B0;}
+  .service-icon{width:40px; height:40px; color:var(--red);}
+  .service-card.featured .service-icon{color:var(--gold);}
+  .service-card h3{font-size:1.3rem; font-weight:700;}
+  .service-card .muted{color:var(--muted); font-size:0.92rem;}
+
+  /* ---------- Products ---------- */
+  .product-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;
+  }
+  .product-card{border:2px solid var(--ink); border-radius:6px; overflow:hidden; background:var(--cream);}
+  .product-card img{aspect-ratio:1/1; object-fit:cover; width:100%;}
+  .product-card figcaption{padding:14px 16px; font-weight:600; font-size:0.95rem; display:flex; justify-content:space-between; align-items:center;}
+  .product-card figcaption small{color:var(--muted); font-weight:500;}
+
+  /* ---------- Process ---------- */
+  .process{display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:2px solid var(--ink);}
+  .process-step{padding:34px 26px; border-right:2px solid var(--ink); position:relative;}
+  .process-step:last-child{border-right:none;}
+  .process-step .num{font-family:'Big Shoulders Display'; font-size:2.6rem; color:var(--gold); font-weight:800; display:block; margin-bottom:10px;}
+  .process-step h3{font-size:1.15rem;}
+  .process-step p{color:var(--muted); font-size:0.92rem; margin:8px 0 0;}
+
+  /* ---------- Why us ---------- */
+  .why-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:start;}
+  .why-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:26px;}
+  .why-list li{display:flex; gap:18px; align-items:flex-start;}
+  .why-list .mark{
+    flex:none; width:34px; height:34px; border-radius:50%; border:2px solid var(--ink);
+    display:flex; align-items:center; justify-content:center; font-family:'Big Shoulders Display'; font-weight:700;
+  }
+  .why-list h3{font-size:1.1rem; margin-bottom:4px;}
+  .why-list p{color:var(--muted); font-size:0.92rem; margin:0;}
+  .why-quote{
+    background:var(--ink); color:var(--cream); border-radius:6px; padding:38px 32px;
+    display:flex; flex-direction:column; gap:18px; align-self:stretch;
+  }
+  .why-quote p{font-family:'Big Shoulders Display'; font-size:1.5rem; font-weight:600; line-height:1.25; margin:0;}
+  .why-quote span{color:var(--gold); font-size:0.85rem; font-weight:600;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .contact-card{border:2px solid var(--ink); border-radius:6px; padding:34px; background:var(--cream);}
+  .contact-card h3{font-size:1rem; text-transform:none; font-family:'Work Sans'; font-weight:700; margin-bottom:18px;}
+  .contact-row{display:flex; gap:14px; margin-bottom:18px; align-items:flex-start;}
+  .contact-row .ic{flex:none; width:22px; height:22px; color:var(--red); margin-top:2px;}
+  .contact-row strong{display:block; font-size:0.95rem;}
+  .contact-row span{color:var(--muted); font-size:0.9rem;}
+  .map-frame{border:2px solid var(--ink); border-radius:6px; overflow:hidden; min-height:340px;}
+  .map-frame iframe{width:100%; height:100%; min-height:340px; border:0; display:block;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink); color:#C9C2B0; padding:50px 0 26px;}
+  .footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; padding-bottom:30px; border-bottom:1px solid #3A342A;}
+  .footer-brand{display:flex; align-items:center; gap:12px;}
+  .footer-brand span{font-family:'Big Shoulders Display'; color:var(--cream); font-size:1.2rem;}
+  .footer-links{display:flex; gap:40px; flex-wrap:wrap;}
+  .footer-links h4{color:var(--cream); font-size:0.82rem; letter-spacing:1px; margin:0 0 12px; font-family:'Work Sans'; font-weight:700;}
+  .footer-links ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; font-size:0.9rem;}
+  .footer-links a{text-decoration:none; color:#C9C2B0;}
+  .footer-links a:hover{color:var(--gold);}
+  .footer-bottom{display:flex; justify-content:space-between; padding-top:22px; font-size:0.8rem; flex-wrap:wrap; gap:10px;}
+
+  /* WhatsApp floating button */
+  .wa-float{
+    position:fixed; right:22px; bottom:22px; z-index:50;
+    background:var(--green); color:#fff; width:58px; height:58px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; text-decoration:none;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25); border:2px solid var(--ink);
+  }
+  .wa-float svg{width:28px; height:28px;}
+
+  @media (max-width:900px){
+    nav.links, .nav-cta .btn-outline{display:none;}
+    .menu-toggle{display:block;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .press-art{margin-top:20px;}
+    .services-grid{grid-template-columns:1fr 1fr;}
+    .product-grid{grid-template-columns:1fr 1fr;}
+    .process{grid-template-columns:1fr 1fr;}
+    .process-step:nth-child(2){border-right:none;}
+    .process-step{border-bottom:2px solid var(--ink);}
+    .why-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .services-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:1fr;}
+    .process{grid-template-columns:1fr;}
+    .process-step{border-right:none;}
+    .hero-meta{gap:20px;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="Logo Percetakan Dewi Sri">
+      <span class="brand-name">Dewi Sri<span>PERCETAKAN &amp; DIGITAL PRINTING</span></span>
+    </a>
+    <nav class="links">
+      <a href="#layanan">Layanan</a>
+      <a href="#produk">Produk</a>
+      <a href="#proses">Proses</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#kontak" class="btn btn-outline">Hubungi Kami</a>
+      <a href="https://wa.me/6281234567890?text=Halo%20Percetakan%20Dewi%20Sri%2C%20saya%20ingin%20bertanya%20soal%20cetak" class="btn btn-primary">Pesan via WhatsApp</a>
+      <button class="menu-toggle" aria-label="Buka menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Percetakan &amp; Digital Printing</div>
+        <h1>Cetak Yang Tumbuh Dari Kepercayaan</h1>
+        <p class="lead">Percetakan Dewi Sri melayani kebutuhan cetak Anda dari desain sampai jadi — kartu nama, spanduk, undangan, stiker, merchandise, hingga dokumen. Dikerjakan teliti, selesai tepat waktu.</p>
+        <div class="hero-cta">
+          <a href="https://wa.me/6281234567890?text=Halo%20Percetakan%20Dewi%20Sri%2C%20saya%20ingin%20pesan%20cetak" class="btn btn-primary">Pesan Sekarang</a>
+          <a href="#layanan" class="btn btn-outline">Lihat Layanan</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>Custom 100%</strong><span>Sesuai ukuran &amp; kebutuhan</span></div>
+          <div><strong>Respon Cepat</strong><span>Konsultasi via WhatsApp</span></div>
+          <div><strong>Aneka Bahan</strong><span>Kertas, vinyl, kain, akrilik</span></div>
+        </div>
+      </div>
+
+      <div class="press-art" aria-hidden="true">
+        <div class="reg-mark rm-tl"><i></i></div>
+        <div class="reg-mark rm-tr"><i></i></div>
+        <div class="reg-mark rm-bl"><i></i></div>
+        <div class="reg-mark rm-br"><i></i></div>
+        <div class="plate plate-1"></div>
+        <div class="plate plate-2"></div>
+        <div class="plate plate-3"></div>
+        <div class="plate plate-4">
+          <strong>DS</strong>
+          <span>PROOF · CETAK · PRESISI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LAYANAN ================= -->
+  <section id="layanan">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Layanan</div>
+        <h2>Satu Tempat Untuk Semua Kebutuhan Cetak</h2>
+        <p>Dari kebutuhan pribadi, UMKM, hingga acara dan perusahaan — berikut layanan yang kami kerjakan sehari-hari.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid">
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 9h18"/><path d="M7 13h4"/></svg>
+          <h3>Cetak Digital</h3>
+          <p class="muted">Dokumen, brosur, flyer, dan materi promosi dalam jumlah kecil maupun besar.</p>
+        </div>
+        <div class="service-card featured">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 17l4-9 4 9M4.5 13.5h5M13 17l4-9 4 9M14.5 13.5h5"/></svg>
+          <h3>Spanduk &amp; Banner</h3>
+          <p class="muted">Cetak large format untuk spanduk, banner, umbul-umbul, dan X-banner acara.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="16" height="10" rx="1.5"/><circle cx="8" cy="12" r="1.4"/><path d="M13 10h5M13 14h3"/></svg>
+          <h3>Kartu Nama</h3>
+          <p class="muted">Desain dan cetak kartu nama profesional dengan pilihan bahan &amp; finishing.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h12l4 4v12H4z"/><path d="M16 4v4h4"/></svg>
+          <h3>Undangan &amp; Kartu</h3>
+          <p class="muted">Undangan pernikahan, khitanan, dan acara khusus dengan desain custom.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1116 0 8 8 0 01-16 0z"/><path d="M4 12h16"/></svg>
+          <h3>Stiker &amp; Label</h3>
+          <p class="muted">Stiker vinyl, label produk, dan cutting sticker berbagai bentuk &amp; ukuran.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2 4 4 .6-3 3 .7 4.2L12 13l-3.7 1.8L9 10.6l-3-3 4-.6z"/></svg>
+          <h3>Merchandise</h3>
+          <p class="muted">Mug, kaos, gantungan kunci, dan merchandise custom untuk brand atau event.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 4h9l3 3v13H6z"/><path d="M9 13h6M9 16h6M9 10h3"/></svg>
+          <h3>Cetak &amp; Jilid Dokumen</h3>
+          <p class="muted">Skripsi, laporan, proposal — lengkap dengan berbagai pilihan jilid.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 15l4-5 3 3 4-6 4 5"/><path d="M3 19h18"/></svg>
+          <h3>Desain Grafis</h3>
+          <p class="muted">Bantuan desain dari nol untuk kebutuhan cetak Anda, oleh tim berpengalaman.</p>
+        </div>
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg>
+          <h3>Custom &amp; Konsultasi</h3>
+          <p class="muted">Punya kebutuhan khusus? Konsultasikan langsung, kami bantu carikan solusinya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUK ================= -->
+  <section id="produk" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Hasil Kerja Kami</div>
+        <h2>Contoh Produk Cetakan</h2>
+        <p>Ini masih foto contoh — ganti dengan foto produk asli Anda mengikuti panduan yang diberikan Claude di akhir percakapan.</p>
+      </div>
+      <div class="product-grid">
+        <figure class="product-card">
+          <img src="assets/produk-1.jpg" alt="Contoh hasil cetak kartu nama">
+          <figcaption>Kartu Nama <small>Ganti foto</small></figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="assets/produk-2.jpg" alt="Contoh hasil cetak spanduk dan banner">
+          <figcaption>Spanduk &amp; Banner <small>Ganti foto</small></figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="assets/produk-3.jpg" alt="Contoh hasil cetak undangan">
+          <figcaption>Undangan <small>Ganti foto</small></figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="assets/produk-4.jpg" alt="Contoh hasil cetak stiker dan label">
+          <figcaption>Stiker &amp; Label <small>Ganti foto</small></figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="assets/produk-5.jpg" alt="Contoh hasil cetak merchandise">
+          <figcaption>Merchandise <small>Ganti foto</small></figcaption>
+        </figure>
+        <figure class="product-card">
+          <img src="assets/produk-6.jpg" alt="Contoh hasil cetak dokumen">
+          <figcaption>Cetak Dokumen <small>Ganti foto</small></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROSES ================= -->
+  <section id="proses">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Cara Pesan</div>
+        <h2>Empat Langkah Sampai Cetakan Anda Jadi</h2>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="process">
+        <div class="process-step">
+          <span class="num">01</span>
+          <h3>Konsultasi</h3>
+          <p>Hubungi kami via WhatsApp, ceritakan kebutuhan dan ukuran cetakan Anda.</p>
+        </div>
+        <div class="process-step">
+          <span class="num">02</span>
+          <h3>Desain &amp; Approval</h3>
+          <p>Kami siapkan desain atau proof, Anda review sampai benar-benar sesuai.</p>
+        </div>
+        <div class="process-step">
+          <span class="num">03</span>
+          <h3>Produksi</h3>
+          <p>Setelah disetujui, file masuk produksi dengan pengecekan kualitas.</p>
+        </div>
+        <div class="process-step">
+          <span class="num">04</span>
+          <h3>Serah Terima</h3>
+          <p>Ambil langsung di toko atau kami bantu kirim ke lokasi Anda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TENTANG / WHY ================= -->
+  <section id="tentang" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Tentang Kami</div>
+        <h2>Kenapa Pelanggan Memilih Dewi Sri</h2>
+      </div>
+      <div class="why-grid">
+        <ul class="why-list">
+          <li>
+            <span class="mark">1</span>
+            <div>
+              <h3>Dikerjakan Teliti</h3>
+              <p>Setiap file dicek dulu sebelum naik cetak, supaya hasil sesuai desain yang disetujui.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mark">2</span>
+            <div>
+              <h3>Bisa Dikustomisasi</h3>
+              <p>Ukuran, bahan, dan jumlah cetak disesuaikan dengan kebutuhan dan bujet Anda.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mark">3</span>
+            <div>
+              <h3>Komunikasi Mudah</h3>
+              <p>Tanya harga, kirim file, dan pantau progres pesanan cukup lewat WhatsApp.</p>
+            </div>
+          </li>
+          <li>
+            <span class="mark">4</span>
+            <div>
+              <h3>Untuk Semua Skala</h3>
+              <p>Melayani pesanan satuan untuk pribadi sampai kebutuhan rutin UMKM dan perusahaan.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="why-quote">
+          <p>"Ganti bagian ini dengan testimoni asli dari pelanggan Anda — kutipan singkat biasanya paling meyakinkan calon pembeli."</p>
+          <span>— Nama Pelanggan, Jenis Pesanan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KONTAK ================= -->
+  <section id="kontak">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Kontak</div>
+        <h2>Yuk, Konsultasikan Cetakan Anda</h2>
+        <p>Kirim pesan lewat WhatsApp atau datang langsung ke toko kami.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Informasi Kontak</h3>
+          <div class="contact-row">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.1-7-11a7 7 0 0114 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div><strong>Alamat</strong><span>Jl. Contoh Alamat No. 00, Depok, Jawa Barat — ganti dengan alamat asli toko Anda</span></div>
+          </div>
+          <div class="contact-row">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h4l2 5-2.5 1.5a11 11 0 005 5L14 14l5 2v4a2 2 0 01-2 2C9.5 22 2 14.5 2 7a2 2 0 012-2z"/></svg>
+            <div><strong>WhatsApp / Telepon</strong><span>0812-3456-7890 — ganti dengan nomor asli</span></div>
+          </div>
+          <div class="contact-row">
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <div><strong>Jam Operasional</strong><span>Senin–Sabtu, 08.00–17.00 WIB — sesuaikan jika berbeda</span></div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%20Percetakan%20Dewi%20Sri" class="btn btn-primary" style="width:100%; justify-content:center; margin-top:10px;">Chat WhatsApp Sekarang</a>
+        </div>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps?q=Percetakan%20Dewi%20Sri%20Depok&output=embed" loading="lazy" title="Lokasi Percetakan Dewi Sri" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Logo Percetakan Dewi Sri" style="width:40px;height:40px;">
+        <span>Percetakan Dewi Sri</span>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>NAVIGASI</h4>
+          <ul>
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#proses">Cara Pesan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>LAYANAN</h4>
+          <ul>
+            <li><a href="#layanan">Cetak Digital</a></li>
+            <li><a href="#layanan">Spanduk &amp; Banner</a></li>
+            <li><a href="#layanan">Undangan</a></li>
+            <li><a href="#layanan">Merchandise</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Percetakan Dewi Sri. Semua hak dilindungi.</span>
+      <span>Dibuat dengan bantuan Claude</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/6281234567890?text=Halo%20Percetakan%20Dewi%20Sri" aria-label="Chat WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.9.53 3.68 1.44 5.2L2 22l5.03-1.53a9.9 9.9 0 004.99 1.34h.01c5.46 0 9.9-4.45 9.9-9.9C21.94 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.05.11-1.7-.11-.39-.13-.89-.29-1.53-.57-2.69-1.16-4.45-3.86-4.58-4.04-.13-.18-1.1-1.46-1.1-2.79s.7-1.98.95-2.25c.24-.27.53-.34.71-.34s.36 0 .51.01c.17.01.39-.06.6.46.24.58.81 2 .88 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.querySelector('nav.links');
+  if(toggle){
+    toggle.addEventListener('click', () => {
+      const open = links.style.display === 'flex';
+      links.style.display = open ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '100%';
+      links.style.left = '0';
+      links.style.right = '0';
+      links.style.background = 'var(--paper)';
+      links.style.padding = '20px 24px';
+      links.style.borderBottom = '2px solid var(--ink)';
+    });
+  }
+</script>
+
+</body>
+</html>
